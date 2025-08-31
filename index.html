@@ -7,16 +7,62 @@
         body {
             margin: 0;
             padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
         
-        .pdf-viewer {
+        .pdf-container {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .pdf-link {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            margin: 10px;
+        }
+        
+        .pdf-link:hover {
+            background-color: #0056b3;
+        }
+        
+        .pdf-iframe {
             width: 100vw;
             height: 100vh;
             border: none;
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .pdf-iframe {
+                display: block;
+            }
+            .pdf-container {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <embed src="chenchong.pdf" type="application/pdf" class="pdf-viewer">
+    <!-- 桌面端显示iframe -->
+    <iframe src="chenchong.pdf" class="pdf-iframe"></iframe>
+    
+    <!-- 移动端显示下载链接 -->
+    <div class="pdf-container">
+        <h2>作品集PDF</h2>
+        <p>点击下方按钮查看或下载PDF文件</p>
+        <a href="chenchong.pdf" target="_blank" class="pdf-link">查看PDF</a>
+        <br>
+        <a href="chenchong.pdf" download class="pdf-link">下载PDF</a>
+    </div>
 </body>
 </html>
